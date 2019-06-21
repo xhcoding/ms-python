@@ -77,6 +77,26 @@ It is relative to `ms-python-server-install-dir',You can set a absolute path."
   :group 'ms-python
   :type 'boolean)
 
+(defcustom ms-python-analysis-errors []
+  "Diagnostics which should be shown as errors."
+  :group 'ms-python
+  :type '(repeat string))
+
+(defcustom ms-python-analysis-warnings []
+  "Diagnostics which should be shown as warnings."
+  :group 'ms-python
+  :type '(repeat string))
+
+(defcustom ms-python-analysis-information []
+  "Diagnostics which should be shown as informational."
+  :group 'ms-python
+  :type '(repeat string))
+
+(defcustom ms-python-analysis-disabled []
+  "Diagnotics which should not be shown at all."
+  :group 'ms-python
+  :type '(repeat string))
+
 
 ;;; Function:
 
@@ -201,7 +221,11 @@ If not found, ask the user whether to install."
               :filter-return #'ms-python--doc-filter-CM))
 
 (lsp-register-custom-settings
- '(("python.linting.enabled" ms-python-python-lint-enabled)))
+ '(("python.linting.enabled" ms-python-python-lint-enabled t)
+   ("python.analysis.errors" ms-python-analysis-errors)
+   ("python.analysis.warnings" ms-python-analysis-warnings)
+   ("python.analysis.information" ms-python-analysis-information)
+   ("python.analysis.disabled" ms-python-analysis-disabled)))
 
 (lsp-register-client
  (make-lsp-client

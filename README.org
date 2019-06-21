@@ -14,8 +14,6 @@ Python support for lsp-mode using [[https://github.com/Microsoft/python-language
 (add-hook 'python-mode-hook #'lsp)
    #+END_SRC
    
-*** Melpa
-M-x =package-install= [RET] =ms-python= [RET]
 ** Server
 First, you must install [[https://git-scm.com][git]] and add it to your system path.
 
